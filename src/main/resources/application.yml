@@ -23,13 +23,14 @@ spring:
       hibernate:
         format_sql: true
 
+
 telebirr:
-  base-url: https://api.telebirr.io
+  base-url: ${BASE_URL}
   fabric-app-id: ${FABRIC_APP_ID}
   app-secret: ${APP_SECRET}
   merchant-app-id: ${MERCHANT_APP_ID}
   short-code: ${SHORT_CODE}
-  private-key: ${PRIVATE_KEY}
+  private-key-pem: ${PRIVATE_KEY} 
   notify-url: http://localhost:9000/payments/notify
   redirect-url: http://localhost:9000/payments/redirect
 

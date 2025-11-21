@@ -16,4 +16,7 @@ public class PaymentConfig {
     private String shortCode;
     private String notifyUrl;
     private String redirectUrl;
+
+   
+    private String privateKeyPem;
 }

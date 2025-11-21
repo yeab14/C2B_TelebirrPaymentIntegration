@@ -1,11 +1,13 @@
 package com.C2B_TelebirrPaymentIntegration.Payment_Integration_Service.client;
 
+import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+
 import com.C2B_TelebirrPaymentIntegration.Payment_Integration_Service.config.PaymentConfig;
 import com.C2B_TelebirrPaymentIntegration.Payment_Integration_Service.dto.CreateOrderRequest;
 import com.C2B_TelebirrPaymentIntegration.Payment_Integration_Service.dto.CreateOrderResponse;
 import com.C2B_TelebirrPaymentIntegration.Payment_Integration_Service.dto.TokenResponse;
-import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
+
 import reactor.core.publisher.Mono;
 
 @Service
@@ -14,11 +16,9 @@ public class TelebirrClient {
     private final WebClient webClient;
     private final PaymentConfig config;
 
-    public TelebirrClient(PaymentConfig config) {
+    public TelebirrClient(PaymentConfig config, WebClient telebirrWebClient) {
         this.config = config;
-        this.webClient = WebClient.builder()
-                .baseUrl(config.getBaseUrl())
-                .build();
+        this.webClient = telebirrWebClient;
     }
 
     public Mono<TokenResponse> getToken() {

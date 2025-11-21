@@ -35,5 +35,5 @@ build/
 ### VS Code ###
 .vscode/
 # Include .env files in resources
-!**/src/main/resources/**/*.env
+!**/src/main/**/*.env
 !**/src/test/resources/**/*.env
