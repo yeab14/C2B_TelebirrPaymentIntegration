@@ -1,6 +1,9 @@
+# General
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
+
+# Exclude build/target but allow src subfolders
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -31,3 +34,6 @@ build/
 
 ### VS Code ###
 .vscode/
+# Include .env files in resources
+!**/src/main/resources/**/*.env
+!**/src/test/resources/**/*.env

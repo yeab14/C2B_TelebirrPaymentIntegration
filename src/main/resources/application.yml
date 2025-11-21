@@ -1,0 +1,38 @@
+server:
+  port: 9000
+  connection-timeout: 30s
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+telebirr:
+  base-url: https://api.telebirr.io
+  fabric-app-id: ${FABRIC_APP_ID}
+  app-secret: ${APP_SECRET}
+  merchant-app-id: ${MERCHANT_APP_ID}
+  short-code: ${SHORT_CODE}
+  notify-url: http://localhost:9000/payments/notify
+  redirect-url: http://localhost:9000/payments/redirect
+
+logging:
+  level:
+    org.springframework: INFO
+    com.yourcompany: DEBUG
